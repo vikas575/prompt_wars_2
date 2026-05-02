@@ -97,7 +97,7 @@ const HungParliamentSection: React.FC = () => {
         <p style={{ marginBottom: '1.5rem' }}>{text}</p>
 
         <div className="scenario-simulator" style={{ background: 'var(--color-surface-2)', padding: '1.5rem', borderRadius: 'var(--radius)', border: '1px solid var(--color-primary)' }}>
-          <h3 style={{ fontSize: '1rem', marginBottom: '1rem', color: var(--color-primary) }}>🎮 Scenario Simulator: Choose an Outcome</h3>
+          <h3 style={{ fontSize: '1rem', marginBottom: '1rem', color: 'var(--color-primary)' }}>🎮 Scenario Simulator: Choose an Outcome</h3>
           <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem' }}>
             {(Object.keys(scenarios) as Array<keyof typeof scenarios>).map((s) => (
               <button
