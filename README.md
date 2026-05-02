@@ -1,73 +1,52 @@
-# React + TypeScript + Vite
+# CivicIQ: Election Process Education Assistant 🗳️✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**CivicIQ** is a high-fidelity, interactive web application designed to empower citizens with the knowledge they need to participate confidently in the democratic process. Built for the **Prompt Wars 2 Hackathon**, this project focuses on accessibility, multilingual support, and a premium user experience.
 
-Currently, two official plugins are available:
+## 🌟 Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+-   **Interactive Election Timeline**: Follow every stage of the election process, from nomination filing to government formation, across India, USA, and UK.
+-   **Myth vs. Fact Database**: Debunk common misconceptions with verified facts and detailed explanations.
+-   **Civic Readiness Quiz**: Test your knowledge and receive a personalized "Civic Readiness Score" with detailed feedback.
+-   **Polling Station Locator (Demo Mode)**: A high-fidelity simulated map that allows users to find nearby booths in a beautiful, glassmorphic interface.
+-   **Accessibility First**:
+    -   **Text-to-Speech (TTS)**: Listen to any section with a single click.
+    -   **Multilingual Support**: Available in 8+ languages including English, Hindi, Spanish, French, and more.
+    -   **Keyboard Accessible**: Full WCAG 2.1 compliance with skip links and semantic HTML.
+-   **Hybrid Demo Mode**: Automatically detects missing API keys and provides simulated data for a seamless demonstration experience.
 
-## React Compiler
+## 🚀 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-   **Frontend**: React 18, Vite, TypeScript
+-   **State Management**: Zustand
+-   **Styling**: Custom Vanilla CSS (Design System approach)
+-   **Backend (Simulated)**: Firebase Auth & Firestore
+-   **APIs (Simulated Fallback)**: Google Maps, Google Translate, Google TTS
 
-## Expanding the ESLint configuration
+## 🛠️ Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/vikas575/prompt_wars_2.git
+    cd prompt_wars_2
+    ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+3.  **Run locally**:
+    ```bash
+    npm run dev
+    ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4.  **Demo Mode**: The application will automatically run in "Full Feature Demo Mode" if real API keys are not provided in a `.env` file. To use real APIs, copy `.env.example` to `.env` and fill in your Google Cloud and Firebase credentials.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📐 Architecture
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+-   **Modular Feature Structure**: Features like `quiz`, `map`, and `timeline` are isolated for maintainability.
+-   **Resilient Service Layer**: All external API calls include robust fallbacks to ensure the app never crashes during a live demo.
+-   **Global State**: Centralized `appStore` manages user preferences and session data across the entire application.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+Built with 💙 for civic empowerment.
