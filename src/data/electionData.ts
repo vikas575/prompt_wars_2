@@ -119,6 +119,22 @@ const indiaMyths: MythFact[] = [
     severity: 'high',
     country: 'IN',
   },
+  {
+    id: 'in-myth-7',
+    myth: 'An NRI (Non-Resident Indian) can vote via the internet from abroad.',
+    fact: 'NRIs can register as overseas voters, but they must be physically present at their polling station in India to cast their vote.',
+    explanation: 'While there are discussions about "Electronically Transmitted Postal Ballot System" (ETPBS) for NRIs, it is currently only available for service voters (military).',
+    severity: 'medium',
+    country: 'IN',
+  },
+  {
+    id: 'in-myth-8',
+    myth: 'The Election Commission is a government department controlled by the ruling party.',
+    fact: 'The ECI is an independent Constitutional body, similar to the Supreme Court, with protected tenure for its commissioners.',
+    explanation: 'Article 324 of the Constitution ensures the ECI operates autonomously. Commissioners can only be removed through a rigorous impeachment process in Parliament.',
+    severity: 'high',
+    country: 'IN',
+  },
 ];
 
 const indiaQuiz: QuizQuestion[] = [
@@ -240,6 +256,22 @@ const usaMyths: MythFact[] = [
     fact: 'Voter ID requirements vary significantly by state. Some states require photo ID, while others accept non-photo ID or have no ID requirement at all.',
     explanation: 'State legislatures determine their own voting laws. Always check your specific state\'s requirements well before election day.',
     severity: 'medium',
+    country: 'US',
+  },
+  {
+    id: 'us-myth-6',
+    myth: 'Dead people voting is a widespread problem that changes election outcomes.',
+    fact: 'While isolated clerical errors occur (like a relative of a recently deceased person voting in their name), it is extremely rare and never on a scale to change results.',
+    explanation: 'Election offices regularly cross-reference death records. Investigations into "dead voter" claims almost always find they were living people with similar names or birthdates.',
+    severity: 'high',
+    country: 'US',
+  },
+  {
+    id: 'us-myth-7',
+    myth: 'Voting machines are connected to the internet and can be hacked by foreign actors.',
+    fact: 'The machines used to count votes are not connected to the internet. They are standalone devices or connected to a secure, closed local network.',
+    explanation: 'Election security involves "defense in depth," including physical seals, logic and accuracy tests, and in most cases, a paper ballot that can be manually audited.',
+    severity: 'high',
     country: 'US',
   },
 ];

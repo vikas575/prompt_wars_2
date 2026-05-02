@@ -68,13 +68,58 @@ const BallotCard: React.FC<{ ballot: BallotType }> = ({ ballot }) => {
 };
 
 const HungParliamentSection: React.FC = () => {
-  const text = "What happens when no single party wins a majority? This is called a hung parliament or hung assembly. In most democracies, the largest party is given first opportunity to form a coalition government by inviting other parties to join. If no coalition can be formed, a fresh election may be called. The President or Monarch plays a ceremonial role in inviting a leader to form the government.";
+  const [scenario, setScenario] = useState<'coalition' | 'minority' | 'fresh'>('coalition');
+
+  const scenarios = {
+    coalition: {
+      title: 'Coalition Government',
+      desc: 'Multiple parties agree on a "Common Minimum Program" and share ministerial posts. This provides stability but requires constant compromise.',
+      icon: '🤝',
+    },
+    minority: {
+      title: 'Minority Government',
+      desc: 'The largest party forms a government alone but relies on other parties to pass every single bill. Very fragile and prone to "No Confidence" motions.',
+      icon: '👤',
+    },
+    fresh: {
+      title: 'Failed Talks & Fresh Elections',
+      desc: 'Parties cannot agree on terms. The assembly is dissolved, and the country goes back to the polls within months.',
+      icon: '🗳️',
+    },
+  };
+
+  const text = "What happens when no single party wins a majority? This is called a hung parliament. In most democracies, the largest party is given first opportunity to form a coalition government. If no coalition can be formed, a fresh election may be called.";
+
   return (
     <section className="tutor-section" aria-labelledby="hung-parliament-heading">
       <h2 id="hung-parliament-heading" className="tutor-section__title">🏛️ Hung Parliament / No-Majority Situation</h2>
       <div className="tutor-section__card">
-        <p>{text}</p>
-        <div className="hung-parliament__steps">
+        <p style={{ marginBottom: '1.5rem' }}>{text}</p>
+
+        <div className="scenario-simulator" style={{ background: 'var(--color-surface-2)', padding: '1.5rem', borderRadius: 'var(--radius)', border: '1px solid var(--color-primary)' }}>
+          <h3 style={{ fontSize: '1rem', marginBottom: '1rem', color: var(--color-primary) }}>🎮 Scenario Simulator: Choose an Outcome</h3>
+          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem' }}>
+            {(Object.keys(scenarios) as Array<keyof typeof scenarios>).map((s) => (
+              <button
+                key={s}
+                className={`btn btn--sm ${scenario === s ? 'btn--primary' : 'btn--ghost'}`}
+                onClick={() => setScenario(s)}
+              >
+                {scenarios[s].title}
+              </button>
+            ))}
+          </div>
+
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', animation: 'fadeIn 0.5s ease' }}>
+            <span style={{ fontSize: '3rem' }}>{scenarios[scenario].icon}</span>
+            <div>
+              <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '0.25rem' }}>{scenarios[scenario].title}</strong>
+              <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>{scenarios[scenario].desc}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="hung-parliament__steps" style={{ marginTop: '2rem' }}>
           {[
             { step: '1', title: 'Results Announced', desc: 'No single party wins majority of seats.' },
             { step: '2', title: 'Largest Party Invited', desc: 'Head of state invites largest party to form government.' },
@@ -91,7 +136,7 @@ const HungParliamentSection: React.FC = () => {
             </div>
           ))}
         </div>
-        <ListenButton text={text} sectionId="hung-parliament-section" />
+        <ListenButton text={`${text} ${scenarios[scenario].title}. ${scenarios[scenario].desc}`} sectionId="hung-parliament-section" />
       </div>
     </section>
   );

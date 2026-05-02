@@ -19,6 +19,16 @@ export const logger = {
     }
   },
   /**
+   * Logs an info message. Alias for log().
+   * @param args - Values to log
+   */
+  info: (...args: unknown[]): void => {
+    if (isDev) {
+      // eslint-disable-next-line no-console
+      console.log(...args);
+    }
+  },
+  /**
    * Logs a warning in all environments.
    * @param args - Values to log
    */
