@@ -55,7 +55,6 @@ export const QuizFeedback: React.FC<QuizFeedbackProps> = ({
         type="button"
         className="quiz-feedback__next-btn btn btn--primary"
         onClick={onNext}
-        autoFocus
         aria-label={isLastQuestion ? 'See your results' : 'Next question'}
       >
         {isLastQuestion ? 'See Results 🏆' : 'Next Question →'}

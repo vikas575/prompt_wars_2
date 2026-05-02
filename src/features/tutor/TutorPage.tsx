@@ -169,7 +169,7 @@ export const TutorPage: React.FC = () => {
         <p className="tutor-page__subtitle">Everything you need to know about the {data.countryName} election process.</p>
       </header>
 
-      <nav className="tutor-tabs" role="tablist" aria-label="Education topics">
+      <div className="tutor-tabs" role="tablist" aria-label="Education topics">
         {tabs.map(({ id, label }) => (
           <button
             key={id}
@@ -184,7 +184,7 @@ export const TutorPage: React.FC = () => {
             {label}
           </button>
         ))}
-      </nav>
+      </div>
 
       <div id={`panel-${activeTab}`} role="tabpanel" aria-labelledby={`tab-${activeTab}`}>
         {activeTab === 'eligibility' && <EligibilitySection {...electionData} />}

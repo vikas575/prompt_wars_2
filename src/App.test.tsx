@@ -5,14 +5,14 @@ import App from './App';
 
 // Mock Firebase
 vi.mock('@/services/firebase', () => ({
-  subscribeToAuthState: vi.fn((cb) => { cb(null); return vi.fn(); }),
+  subscribeToAuthState: vi.fn((cb: (user: null) => void) => { cb(null); return vi.fn(); }),
   signInWithGoogle: vi.fn(),
   signOutUser: vi.fn(),
 }));
 
 // Mock Store
 vi.mock('@/store/appStore', () => ({
-  useAppStore: vi.fn((selector) =>
+  useAppStore: vi.fn((selector: (state: any) => any) =>
     selector({
       user: null,
       selectedCountry: 'IN',

@@ -86,7 +86,7 @@ export const MythsPage: React.FC = () => {
       <header className="myths-page__header">
         <h1 className="myths-page__title">⚖️ Myth vs. Fact</h1>
         <p className="myths-page__subtitle">
-          Don't be misled. Here are the most common election myths — debunked with evidence.
+          Don&apos;t be misled. Here are the most common election myths — debunked with evidence.
         </p>
       </header>
 

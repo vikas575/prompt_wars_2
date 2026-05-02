@@ -18,13 +18,11 @@ import {
   addDoc,
   collection,
   serverTimestamp,
-  type Firestore,
 } from 'firebase/firestore';
 import {
   signInWithPopup,
   signOut,
   onAuthStateChanged,
-  type Auth,
   type User,
 } from 'firebase/auth';
 import { db, auth, googleProvider } from '@/firebase.config';
@@ -98,7 +96,7 @@ export function subscribeToAuthState(callback: (user: User | null) => void): () 
  */
 export async function getUserProgress(uid: string): Promise<FirestoreUserProgress | null> {
   try {
-    const ref = doc(db as Firestore, 'users', uid);
+    const ref = doc(db, 'users', uid);
     const snap = await getDoc(ref);
     return snap.exists() ? (snap.data() as FirestoreUserProgress) : null;
   } catch (err: unknown) {
@@ -117,7 +115,7 @@ export async function saveUserProgress(
   data: Partial<FirestoreUserProgress>,
 ): Promise<void> {
   try {
-    const ref = doc(db as Firestore, 'users', uid);
+    const ref = doc(db, 'users', uid);
     await setDoc(ref, { ...data, uid, lastActive: Date.now() }, { merge: true });
   } catch (err: unknown) {
     logger.error('[Firestore] saveUserProgress failed:', err);
@@ -135,7 +133,7 @@ export async function saveQuizSession(
   session: FirestoreQuizSession,
 ): Promise<string | null> {
   try {
-    const ref = collection(db as Firestore, 'quizSessions');
+    const ref = collection(db, 'quizSessions');
     const docRef = await addDoc(ref, {
       ...session,
       completedAt: serverTimestamp(),
@@ -156,7 +154,7 @@ export async function saveQuizSession(
  */
 export async function getCivicScore(uid: string): Promise<CivicReadinessScore | null> {
   try {
-    const ref = doc(db as Firestore, 'civicScores', uid);
+    const ref = doc(db, 'civicScores', uid);
     const snap = await getDoc(ref);
     return snap.exists() ? (snap.data() as CivicReadinessScore) : null;
   } catch (err: unknown) {
@@ -172,7 +170,7 @@ export async function getCivicScore(uid: string): Promise<CivicReadinessScore | 
  */
 export async function saveCivicScore(uid: string, score: CivicReadinessScore): Promise<void> {
   try {
-    const ref = doc(db as Firestore, 'civicScores', uid);
+    const ref = doc(db, 'civicScores', uid);
     await setDoc(ref, { ...score, lastUpdated: Date.now() }, { merge: true });
   } catch (err: unknown) {
     logger.error('[Firestore] saveCivicScore failed:', err);

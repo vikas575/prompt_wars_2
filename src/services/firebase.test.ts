@@ -44,6 +44,7 @@ import type { FirestoreQuizSession, CivicReadinessScore } from '@/types';
 
 beforeEach(() => {
   vi.clearAllMocks();
+  vi.stubEnv('VITE_FIREBASE_API_KEY', 'test-api-key');
 });
 
 // ─── Auth ───────────────────────────────────────────────────────────────────

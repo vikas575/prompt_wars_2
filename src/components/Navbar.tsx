@@ -131,7 +131,7 @@ export const Navbar: React.FC = () => {
               {user.photoURL && (
                 <img
                   src={user.photoURL}
-                  alt={`${user.displayName ?? 'User'}'s profile picture`}
+                  alt={user.displayName ?? 'User'}
                   className="navbar__avatar"
                   width={32}
                   height={32}

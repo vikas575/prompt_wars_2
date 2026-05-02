@@ -163,7 +163,7 @@ export const MapPage: React.FC = () => {
       <header className="map-page__header">
         <h1 className="map-page__title">📍 Find Your Polling Station</h1>
         <p className="map-page__subtitle">
-          Click "Locate Me" to find polling stations near you.
+          Click &quot;Locate Me&quot; to find polling stations near you.
         </p>
       </header>
 
@@ -194,6 +194,8 @@ export const MapPage: React.FC = () => {
           </div>
           <div
             className="map-page__map-mock"
+            role="application"
+            aria-label="Interactive map showing polling stations"
             style={{
               height: '450px',
               width: '100%',
@@ -302,7 +304,7 @@ export const MapPage: React.FC = () => {
       {mapState.nearbyStations.length > 0 && (
         <div className="map-page__list" aria-label="Nearby polling stations list">
           <h2 className="map-page__list-title">Nearby Stations</h2>
-          <ul role="list">
+          <ul>
             {mapState.nearbyStations.map((station) => (
               <li key={station.id}>
                 <button

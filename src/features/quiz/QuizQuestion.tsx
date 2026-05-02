@@ -54,7 +54,7 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({
         {question.question}
       </h2>
 
-      <ul className="quiz-question__options" role="list">
+      <ul className="quiz-question__options">
         {question.options.map((option) => {
           const isSelected = selectedOptionId === option.id;
           const isCorrect = isSubmitted && option.id === question.correctOptionId;
@@ -66,7 +66,7 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({
           else if (isSelected) stateClass = 'quiz-option--selected';
 
           return (
-            <li key={option.id} role="listitem">
+            <li key={option.id}>
               <button
                 type="button"
                 id={`option-${option.id}`}

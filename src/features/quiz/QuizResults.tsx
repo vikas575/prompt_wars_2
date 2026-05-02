@@ -55,7 +55,7 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
 
       <div className="quiz-results__breakdown" aria-label="Question-by-question breakdown">
         <h3 className="quiz-results__breakdown-title">Review Your Answers</h3>
-        <ul className="quiz-results__list" role="list">
+        <ul className="quiz-results__list">
           {questions.map((q, idx) => {
             const answer = answers[idx];
             const isCorrect = answer?.isCorrect ?? false;

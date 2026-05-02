@@ -5,7 +5,7 @@
  * Handles scoring, answer tracking, and Firestore session persistence.
  */
 import { useReducer, useCallback, useMemo } from 'react';
-import type { QuizQuestion, QuizAnswer, QuizPhase, QuizSession, Country } from '@/types';
+import type { QuizQuestion, QuizAnswer, QuizPhase, Country } from '@/types';
 import { saveQuizSession } from '@/services/firebase';
 import { useAppStore } from '@/store/appStore';
 
